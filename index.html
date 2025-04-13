@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelBloom - Discover Your Next Adventure</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Navigation Bar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #2c3e50;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #f39c12;
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+        
+        .nav-links a:hover {
+            color: #f39c12;
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+        
+        .search-bar input {
+            padding: 0.6rem 1rem;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 1rem;
+            width: 200px;
+        }
+        
+        .search-bar button {
+            padding: 0.6rem 1rem;
+            background-color: #f39c12;
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .search-bar button:hover {
+            background-color: #e67e22;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 2rem;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .book-now {
+            padding: 1rem 2rem;
+            background-color: #f39c12;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .book-now:hover {
+            background-color: #e67e22;
+        }
+        
+        .social-icons {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .social-icons a:hover {
+            transform: translateY(-5px);
+            color: #f39c12;
+        }
+        
+        /* Recommendations Section */
+        .recommendations-section {
+            padding: 4rem 2rem;
+            background-color: #f8f9fa;
+        }
+        
+        .recommendations-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+        
+        .recommendations-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .recommendation-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .recommendation-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .recommendation-card:hover .card-image img {
+            transform: scale(1.1);
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .card-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+        
+        .card-content p {
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .card-content button {
+            padding: 0.7rem 1.5rem;
+            background-color: #f39c12;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .card-content button:hover {
+            background-color: #e67e22;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .nav-links {
+                margin-top: 1rem;
+                gap: 1rem;
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .search-bar {
+                width: 100%;
+            }
+            
+            .search-bar input {
+                width: 100%;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">TravelBloom</div>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+            <div class="search-bar">
+                <input type="text" placeholder="Search destinations...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Discover the World with TravelBloom</h1>
+            <p>Explore breathtaking destinations and immerse yourself in diverse cultures. Your perfect adventure awaits!</p>
+            <button class="book-now">Book Now</button>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recommendations Section -->
+    <div class="recommendations-section">
+        <h2>Recommended Destinations</h2>
+        <div class="recommendations-container">
+            <!-- Beach Destination 1 -->
+            <div class="recommendation-card">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1518544866330-95a2475c9e47?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Bali Beach">
+                </div>
+                <div class="card-content">
+                    <h3>Bali Beaches</h3>
+                    <p>Experience the pristine beaches and vibrant culture of Bali, Indonesia.</p>
+                    <button>Explore</button>
+                </div>
+            </div>
+            
+            <!-- Beach Destination 2 -->
+            <div class="recommendation-card">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1578932750355-5eb30ece487a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Maldives Resort">
+                </div>
+                <div class="card-content">
+                    <h3>Maldives Resorts</h3>
+                    <p>Relax in luxury at the beautiful overwater bungalows in Maldives.</p>
+                    <button>Explore</button>
+                </div>
+            </div>
+            
+            <!-- Temple Destination 1 -->
+            <div class="recommendation-card">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1528181304800-259b08848526?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Angkor Wat">
+                </div>
+                <div class="card-content">
+                    <h3>Angkor Wat</h3>
+                    <p>Explore the magnificent temple complex in Cambodia.</p>
+                    <button>Explore</button>
+                </div>
+            </div>
+            
+            <!-- Temple Destination 2 -->
+            <div class="recommendation-card">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1492571350019-22de08371fd3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Kyoto Temple">
+                </div>
+                <div class="card-content">
+                    <h3>Kyoto Temples</h3>
+                    <p>Discover the serene temples and gardens of Kyoto, Japan.</p>
+                    <button>Explore</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple interactive functionality
+        document.querySelectorAll('.recommendation-card button').forEach(button => {
+            button.addEventListener('click', function() {
+                const destination = this.closest('.recommendation-card').querySelector('h3').textContent;
+                alert(`You selected: ${destination}\n\nThis would normally take you to more details about this destination.`);
+            });
+        });
+        
+        document.querySelector('.book-now').addEventListener('click', function() {
+            alert('Booking functionality would be implemented here!');
+        });
+        
+        // Search functionality
+        document.querySelector('.search-bar button').addEventListener('click', function() {
+            const searchTerm = document.querySelector('.search-bar input').value;
+            if (searchTerm.trim() !== '') {
+                alert(`Searching for: ${searchTerm}\n\nThis would normally show search results.`);
+            }
+        });
+        
+        // Allow search on Enter key
+        document.querySelector('.search-bar input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.querySelector('.search-bar button').click();
+            }
+        });
+    </script>
+</body>
+</html>
